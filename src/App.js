@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+
+import { GET_DETAIL } from '@apis'
+
 import { StyledTitle, StyledSection, StyledDashed, StyledColumns, StyledLabel, StyledValue } from './styled'
+
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+    const params = {
+      orgId: 360100001,
+      jobNum: 99121,
+      payDate: "2020-05-12"
+    }
+    GET_DETAIL(params)
+  }, [])
+
   return (
     <div className="App">
       <div>logo</div>
@@ -46,6 +61,18 @@ function App() {
           <div>请在三个工作日后登陆江西省财政厅门户网站</div>
         </StyledColumns>
       </StyledSection>
+      <ToastContainer
+        position="top-center"
+        style={{ width: "80vw", top: "20px" }}
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        // rtl={false}
+        // pauseOnFocusLoss
+        // draggable
+        pauseOnHover
+      />
     </div>
   );
 }

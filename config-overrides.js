@@ -4,11 +4,7 @@ const path = require('path')
 
 const addProxy = () => configFunction => {
   configFunction.proxy = {
-    '/cms-web-api/': {
-      target: 'https://emdctest.healthlink.cn',
-      changeOrigin: true,
-    },
-    '/emdc-app/': {
+    '/phemr-web-api-v3/': {
       target: 'https://emdctest.healthlink.cn',
       changeOrigin: true,
     },
@@ -20,12 +16,16 @@ const addProxy = () => configFunction => {
 module.exports = {
   webpack: override(
     addLessLoader({
-      javascriptEnabled: true,
-      // modifyVars: { '@primary-color': '#1DA57A' },
+      lessOptions: {
+        javascriptEnabled: true,
+        // modifyVars: { '@base-color': '#f44336' }
+      }
     }),
     addWebpackAlias({
       ["@"]: path.resolve(__dirname, "src"),
-      ["@styled"]: path.resolve(__dirname, "src/styled/index.js"),
+      ["@axios"]: path.resolve(__dirname, "src/axios"),
+      ["@apis"]: path.resolve(__dirname, "src/axios/apis"),
+      ["@styled"]: path.resolve(__dirname, "src/styled"),
     }),
     // addWebpackPlugin(new AntdDayjsWebpackPlugin())
   ),
