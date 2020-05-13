@@ -24,6 +24,7 @@ module.exports = {
     addWebpackAlias({
       ["@"]: path.resolve(__dirname, "src"),
       ["@axios"]: path.resolve(__dirname, "src/axios"),
+      ["@utils"]: path.resolve(__dirname, "src/utils"),
       ["@apis"]: path.resolve(__dirname, "src/axios/apis"),
       ["@styled"]: path.resolve(__dirname, "src/styled"),
     }),
