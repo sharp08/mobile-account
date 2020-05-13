@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { GET_DETAIL } from '@apis'
+import * as Utils from '@utils'
 
 import { StyledTitle, StyledSection, StyledDashed, StyledColumns, StyledLabel, StyledValue } from './styled'
 
@@ -49,7 +50,7 @@ function App() {
         <StyledDashed />
         <StyledColumns colsWidth={["35%", "auto"]}>
           <StyledLabel>合计：</StyledLabel><StyledValue align="right">{data.totalFee}</StyledValue>
-          <StyledLabel>合计金额：</StyledLabel><StyledValue align="right">100.00</StyledValue>
+          <StyledLabel>合计金额：</StyledLabel><StyledValue align="right">{Utils.CONVERT_2_YUAN(1234.5678)}</StyledValue>
         </StyledColumns>
       </StyledSection>
       <StyledSection>
